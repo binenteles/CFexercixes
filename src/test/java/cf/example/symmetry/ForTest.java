@@ -6,18 +6,18 @@ import org.junit.jupiter.params.provider.ValueSource;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-public class SymmetryWithStackTest {
-    SymmetricWithStack symmetric = new SymmetricWithStack();
+public class ForTest {
+
 
     @ParameterizedTest
     @ValueSource(strings = {("([{{[(())]}}])"), "()", "[]", "{}"})
     public void caseShouldBeValid(String str) {
-        assertTrue(symmetric.isSymmetricBalanced(str));
+        assertTrue(Symmetric.withFor(str));
     }
 
     @ParameterizedTest
     @ValueSource(strings = {"{{[]()}}}}", "{[(])}", "[](){}"})
     public void caseShouldBeInvalid(String str) {
-        assertFalse(symmetric.isSymmetricBalanced(str));
+        assertFalse(Symmetric.withFor(str));
     }
 }
