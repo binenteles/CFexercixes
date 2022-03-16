@@ -1,13 +1,16 @@
-public class Case {
-    public static boolean isSymmetricBalanced(String str) {
+package cf.example.symmetry;
+
+public class SymmetryWithWhile {
+
+    int i = 0;
+    boolean isSymmetric = true;
+
+    public boolean isSymmetricBalanced(String str) {
         char[] arr = str.toCharArray();
         if (arr.length % 2 != 0) {
             return false;
         }
-
-        int i = 0;
         int j = arr.length - 1;
-        boolean isSymmetric = true;
 
         while (i < j) {
             char current = arr[i];
@@ -34,10 +37,4 @@ public class Case {
         return isSymmetric;
     }
 
-    public static void main(String[] args) {
-        System.out.println(isSymmetricBalanced("([{{[(())]}}])"));
-        System.out.println(isSymmetricBalanced("{{[]()}}}}"));
-        System.out.println(isSymmetricBalanced("{[(])}"));
-        System.out.println(isSymmetricBalanced("[](){}"));
-    }
 }
