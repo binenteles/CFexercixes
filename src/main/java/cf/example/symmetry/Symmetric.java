@@ -63,10 +63,12 @@ public class Symmetric {
 
     public static boolean withRegex(String str) {
 
-        Pattern pattern = Pattern.compile("(\\(.*?\\))");
+        if (str.length() == 2) {
+            return true;
+        }
+        Pattern pattern = Pattern.compile("(^\\(.*?\\)$)|(^\\[.*?]$)|(^\\{.*?}$)");
         Matcher matcher = pattern.matcher(str);
-
-        return matcher.matches();
+        return matcher.matches() && withRegex(str.substring(1, str.length() - 1));
     }
 
     public static boolean withWhile(String str) {
@@ -93,4 +95,6 @@ public class Symmetric {
         }
         return true;
     }
+
+
 }
