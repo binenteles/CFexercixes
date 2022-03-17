@@ -5,10 +5,9 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class Symmetric {
-    private Symmetric(){
+    private Symmetric() {
 
     }
-
 
 
     public static boolean withStack(String str) {
@@ -17,7 +16,13 @@ public class Symmetric {
             return false;
         }
 
-        for (int i = 0; i < str.length()/2; i++) {
+        for (int i = str.length() / 2; i < str.length(); i++) {
+            if (str.charAt(i) == '(' || str.charAt(i) == '[' || str.charAt(i) == '{') {
+                return false;
+            }
+        }
+
+        for (int i = 0; i < str.length(); i++) {
             if (str.charAt(i) == '(' || str.charAt(i) == '[' || str.charAt(i) == '{') {
                 stack.push(str.charAt(i));
             } else {
@@ -44,12 +49,12 @@ public class Symmetric {
             return false;
         }
 
-        for (int i = 0; i < str.length(); i++){
-            if (str.charAt(i) == '(' && str.charAt(str.length()-1-i) != ')') {
+        for (int i = 0; i < str.length(); i++) {
+            if (str.charAt(i) == '(' && str.charAt(str.length() - 1 - i) != ')') {
                 return false;
-            } else if (str.charAt(i) == '[' && str.charAt(str.length()-1-i) != ']') {
+            } else if (str.charAt(i) == '[' && str.charAt(str.length() - 1 - i) != ']') {
                 return false;
-            } else if (str.charAt(i) == '{' && str.charAt(str.length()-1-i) != '}') {
+            } else if (str.charAt(i) == '{' && str.charAt(str.length() - 1 - i) != '}') {
                 return false;
             }
         }
@@ -57,8 +62,8 @@ public class Symmetric {
     }
 
     public static boolean withRegex(String str) {
-        String rule = "(...); [...]; \\{...} ";
-        Pattern pattern = Pattern.compile(rule);
+
+        Pattern pattern = Pattern.compile("(\\(.*?\\))");
         Matcher matcher = pattern.matcher(str);
 
         return matcher.matches();
@@ -78,7 +83,7 @@ public class Symmetric {
 
             if (start == '(' && end != ')') {
                 return false;
-            } else if (start == '[' && end != ']' ) {
+            } else if (start == '[' && end != ']') {
                 return false;
             } else if (start == '{' && (end != '}')) {
                 return false;
