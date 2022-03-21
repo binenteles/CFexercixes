@@ -20,4 +20,10 @@ public class SymmetryWithForTest {
     public void caseShouldBeInvalid(String str) {
         assertFalse(checkSymmetryUsingFor.evaluate(str));
     }
+
+    @ParameterizedTest
+    @ValueSource(strings = {"", "  "})
+    void isBlank_ShouldReturnTrueForNullOrBlankStrings(String str) {
+        assertFalse(checkSymmetryUsingFor.evaluate(str));
+    }
 }
