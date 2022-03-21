@@ -3,6 +3,11 @@ package cf.example.symmetry;
 public class CheckSymmetryUsingWhile extends Constants implements SymmetricParenthesesEvaluator {
     @Override
     public boolean evaluate(String str) {
+
+        if (ValidateString.isInvalidString(str)) {
+            return false;
+        }
+
         char[] arr = str.toCharArray();
         if (arr.length % 2 != 0) {
             return false;

@@ -8,6 +8,7 @@ public class CheckSymmetryUsingRegex extends Constants implements SymmetricParen
 
     @Override
     public boolean evaluate(String str) {
+
         Pattern pattern = Pattern.compile("(^\\(.*?\\)$)|(^\\[.*?]$)|(^\\{.*?}$)");
         Matcher matcher = pattern.matcher(str);
         if (str.length() == 0) {
