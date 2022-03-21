@@ -6,18 +6,20 @@ import org.junit.jupiter.params.provider.ValueSource;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-public class ForTest {
+public class SymmetryWithWhileTest {
 
+    CheckSymmetryUsingWhile checkSymmetryUsingWhile = new CheckSymmetryUsingWhile();
 
     @ParameterizedTest
     @ValueSource(strings = {("([{{[(())]}}])"), "()", "[]", "{}"})
     public void caseShouldBeValid(String str) {
-        assertTrue(Symmetric.withFor(str));
+        assertTrue(checkSymmetryUsingWhile.evaluate(str));
     }
 
     @ParameterizedTest
     @ValueSource(strings = {"{{[]()}}}}", "{[(])}", "[](){}"})
     public void caseShouldBeInvalid(String str) {
-        assertFalse(Symmetric.withFor(str));
+
+        assertFalse(checkSymmetryUsingWhile.evaluate(str));
     }
 }

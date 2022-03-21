@@ -6,18 +6,18 @@ import org.junit.jupiter.params.provider.ValueSource;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-public class WhileTest {
-
+public class SymmetryWithRegexTest {
+    CheckSymmetryUsingRegex checkSymmetryUsingRegex = new CheckSymmetryUsingRegex();
 
     @ParameterizedTest
     @ValueSource(strings = {("([{{[(())]}}])"), "()", "[]", "{}"})
     public void caseShouldBeValid(String str) {
-        assertTrue(Symmetric.withWhile(str));
+        assertTrue(checkSymmetryUsingRegex.evaluate(str));
     }
 
     @ParameterizedTest
-    @ValueSource(strings = {"{{[]()}}}}", "{[(])}", "[](){}"})
+    @ValueSource(strings = {"{{[]()}}}}", "{[(])}", "[](){}", "([{{[((])]}}])", " ", "(]"})
     public void caseShouldBeInvalid(String str) {
-        assertFalse(Symmetric.withWhile(str));
+        assertFalse(checkSymmetryUsingRegex.evaluate(str));
     }
 }
