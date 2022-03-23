@@ -2,7 +2,7 @@ package cf.example.symmetry;
 
 import java.util.Stack;
 
-public class CheckSymmetryUsingStack extends Constants implements SymmetricParenthesesEvaluator {
+public class StackBasedSymmetryEvaluator extends Evaluator {
 
 
     @Override
@@ -36,13 +36,15 @@ public class CheckSymmetryUsingStack extends Constants implements SymmetricParen
                     }
                 }
             }
-
         }
+
+
         return true;
     }
 
 
     private boolean isOpenBracket(String str, int i) {
-        return str.charAt(i) == OPEN_ROUND_BRACKET || str.charAt(i) == OPEN_SQUARE_BRACKET || str.charAt(i) == OPEN_CURLY_BRACKET;
+        return PairCreator.getRulePairs().stream().map(Pair::getLeft).toList().contains(str.charAt(i));
     }
+
 }

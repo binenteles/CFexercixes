@@ -3,7 +3,7 @@ package cf.example.symmetry;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class CheckSymmetryUsingRegex extends Constants implements SymmetricParenthesesEvaluator {
+public class RegexBasedSymmetryEvaluator extends Evaluator {
 
 
     @Override

@@ -1,6 +1,12 @@
 package cf.example.symmetry;
 
-public class CheckSymmetryUsingWhile extends Constants implements SymmetricParenthesesEvaluator {
+import cf.example.symmetry.Evaluator;
+import cf.example.symmetry.Pair;
+import cf.example.symmetry.ValidateString;
+
+public class WhileBasedSymmetryEvaluator extends  Evaluator {
+
+
     @Override
     public boolean evaluate(String str) {
 
