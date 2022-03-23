@@ -10,29 +10,27 @@ import java.util.List;
 
 public class PairCreator {
 
-    public static List<Pair<Character, Character>> getRulePairs()  {
+    public static List<Pair<Character, Character>> getRulePairs() {
         List<Pair<Character, Character>> pairsToCheck = new ArrayList<>();
         InputStream file = PairCreator.class
                 .getClassLoader()
                 .getResourceAsStream("pairs.txt");
 
         String rule;
-        try {
-            try (BufferedReader br = new BufferedReader(
-                    new InputStreamReader(file, StandardCharsets.UTF_8))) {
+
+        try (BufferedReader br = new BufferedReader(
+                new InputStreamReader(file, StandardCharsets.UTF_8))) {
 
 
-                while ((rule = br.readLine()) != null) {
-                    System.out.println(rule);
-                    for (int i = 0; i < rule.length(); i += 2) {
-                        Pair<Character, Character> pair = new Pair<>(rule.charAt(i), rule.charAt(i + 1));
-                        pairsToCheck.add(pair);
+            while ((rule = br.readLine()) != null) {
+                for (int i = 0; i < rule.length(); i += 2) {
+                    Pair<Character, Character> pair = new Pair<>(rule.charAt(i), rule.charAt(i + 1));
+                    pairsToCheck.add(pair);
 
-                    }
                 }
-
-
             }
+
+
         } catch (IOException e) {
             e.printStackTrace();
         }

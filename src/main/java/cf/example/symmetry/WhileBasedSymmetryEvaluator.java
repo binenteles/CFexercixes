@@ -27,11 +27,12 @@ public class WhileBasedSymmetryEvaluator extends Evaluator {
             boolean any = PairCreator.getRulePairs().stream()
                     .anyMatch(characterCharacterPair -> characterCharacterPair.getLeft() == start
                             && characterCharacterPair.getRight() == end);
-            if (any) {
-                return false;
-            }
             i++;
             j--;
+            if (!any) {
+               return false;
+            }
+
         }
         return true;
     }

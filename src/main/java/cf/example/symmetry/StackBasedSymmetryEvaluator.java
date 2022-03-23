@@ -29,8 +29,10 @@ public class StackBasedSymmetryEvaluator extends Evaluator {
                 if (!stack.isEmpty()) {
                     boolean any = PairCreator.getRulePairs().stream().anyMatch(characterCharacterPair -> characterCharacterPair.getRight() == current &&
                             characterCharacterPair.getLeft() != stack.pop());
-                    if (any) ;
-                    return false;
+                    if (!any){
+                        return false;
+                    }
+
                 }
             }
         }

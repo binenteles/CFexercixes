@@ -1,9 +1,12 @@
 package cf.example.symmetry;
 
-public class ForBasedSymmetricEvaluator extends ValidateString {
+public class ForBasedSymmetricEvaluator extends Evaluator {
 
-
-    public boolean evaluate(String str) {
+    @Override
+    boolean evaluate(String str) {
+        if (isInvalidString(str)){
+            return false;
+        }
         boolean anyMatch = false;
 
         for (int i = 0; i < str.length(); i++) {
@@ -14,9 +17,6 @@ public class ForBasedSymmetricEvaluator extends ValidateString {
                             && characterCharacterPair.getRight() == endCharFromReducedString);
         }
 
-
         return anyMatch;
     }
-
-
 }
