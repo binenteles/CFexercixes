@@ -17,17 +17,17 @@ public class PairCreator {
                 .getResourceAsStream("pairs.txt");
 
         String rule;
-
         try {
-            assert file != null;
             try (BufferedReader br = new BufferedReader(
                     new InputStreamReader(file, StandardCharsets.UTF_8))) {
 
 
                 while ((rule = br.readLine()) != null) {
+                    System.out.println(rule);
                     for (int i = 0; i < rule.length(); i += 2) {
                         Pair<Character, Character> pair = new Pair<>(rule.charAt(i), rule.charAt(i + 1));
                         pairsToCheck.add(pair);
+
                     }
                 }
 
