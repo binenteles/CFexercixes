@@ -21,24 +21,19 @@ public class StackBasedSymmetryEvaluator extends Evaluator {
         }
 
         for (int i = 0; i < str.length(); i++) {
+            char current = str.charAt(i);
             if (isOpenBracket(str, i)) {
                 stack.push(str.charAt(i));
+
             } else {
-                if (stack.isEmpty()) {
+                if (!stack.isEmpty()) {
+                    boolean any = PairCreator.getRulePairs().stream().anyMatch(characterCharacterPair -> characterCharacterPair.getRight() == current &&
+                            characterCharacterPair.getLeft() != stack.pop());
+                    if (any) ;
                     return false;
-                } else {
-                    if (str.charAt(i) == CLOSED_ROUND_BRACKET && stack.pop() != OPEN_ROUND_BRACKET) {
-                        return false;
-                    } else if (str.charAt(i) == CLOSED_SQUARE_BRACKET && stack.pop() != OPEN_SQUARE_BRACKET) {
-                        return false;
-                    } else if (str.charAt(i) == CLOSED_CURLY_BRACKET && stack.pop() != OPEN_CURLY_BRACKET) {
-                        return false;
-                    }
                 }
             }
         }
-
-
         return true;
     }
 

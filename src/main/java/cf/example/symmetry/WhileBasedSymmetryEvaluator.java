@@ -4,7 +4,7 @@ import cf.example.symmetry.Evaluator;
 import cf.example.symmetry.Pair;
 import cf.example.symmetry.ValidateString;
 
-public class WhileBasedSymmetryEvaluator extends  Evaluator {
+public class WhileBasedSymmetryEvaluator extends Evaluator {
 
 
     @Override
@@ -24,12 +24,10 @@ public class WhileBasedSymmetryEvaluator extends  Evaluator {
         while (i < j) {
             char start = arr[i];
             char end = arr[j];
-
-            if (start == OPEN_ROUND_BRACKET && end != CLOSED_ROUND_BRACKET) {
-                return false;
-            } else if (start == OPEN_SQUARE_BRACKET && end != CLOSED_SQUARE_BRACKET) {
-                return false;
-            } else if (start == OPEN_CURLY_BRACKET && (end != CLOSED_CURLY_BRACKET)) {
+            boolean any = PairCreator.getRulePairs().stream()
+                    .anyMatch(characterCharacterPair -> characterCharacterPair.getLeft() == start
+                            && characterCharacterPair.getRight() == end);
+            if (any) {
                 return false;
             }
             i++;
