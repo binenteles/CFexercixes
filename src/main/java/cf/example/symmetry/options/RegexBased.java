@@ -1,6 +1,6 @@
-package cf.example.symmetry.algorithms;
+package cf.example.symmetry.options;
 
-import cf.example.symmetry.template.Evaluator;
+import cf.example.symmetry.prerequisite.Evaluator;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;

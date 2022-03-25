@@ -1,8 +1,8 @@
-package cf.example.symmetry.algorithms;
+package cf.example.symmetry.options;
 
-import cf.example.symmetry.conditions.Base;
-import cf.example.symmetry.template.Evaluator;
-import cf.example.symmetry.conditions.Requirements;
+import cf.example.symmetry.prerequisite.Requirement;
+import cf.example.symmetry.prerequisite.Evaluator;
+import cf.example.symmetry.prerequisite.Requirements;
 
 import java.util.stream.Stream;
 
@@ -22,7 +22,7 @@ public class ForBased extends Evaluator {
         return anyMatch;
     }
 
-    private Stream<Base<Character, Character>> getStream() {
+    private Stream<Requirement<Character, Character>> getStream() {
         return Requirements.getRule().stream();
     }
 

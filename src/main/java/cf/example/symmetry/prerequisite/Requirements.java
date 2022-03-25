@@ -1,6 +1,6 @@
-package cf.example.symmetry.conditions;
+package cf.example.symmetry.prerequisite;
 
-import cf.example.symmetry.exceptions.CustomException;
+import cf.example.symmetry.exceptions.ReadRequirementException;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -12,11 +12,11 @@ import java.util.List;
 
 public class Requirements {
 
-    public static List<Base<Character, Character>> getRule() {
-        List<Base<Character, Character>> baseList = new ArrayList<>();
+    public static List<Requirement<Character, Character>> getRule() {
+        List<Requirement<Character, Character>> requirements = new ArrayList<>();
         InputStream file = Requirements.class
                 .getClassLoader()
-                .getResourceAsStream("pairs.txt");
+                .getResourceAsStream("rules.txt");
 
         String rule;
 
@@ -25,17 +25,14 @@ public class Requirements {
 
 
             while ((rule = br.readLine()) != null) {
-                for (int i = 0; i < rule.length(); i += 2) {
-                    Base<Character, Character> base = new Base<>(rule.charAt(i), rule.charAt(i + 1));
-                    baseList.add(base);
-
-                }
+                    Requirement<Character, Character> requirement = new Requirement<>(rule.charAt(0), rule.charAt(1));
+                    requirements.add(requirement);
             }
 
         } catch (NullPointerException | IOException e) {
-            throw new CustomException("The file could not be opened!", e);
+            throw new ReadRequirementException("The file could not be opened!", e);
         }
-        return baseList;
+        return requirements;
     }
 
 

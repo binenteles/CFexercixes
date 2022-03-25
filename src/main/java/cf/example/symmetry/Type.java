@@ -1,4 +1,4 @@
-package cf.example.symmetry.factory;
+package cf.example.symmetry;
 
 public enum Type {
     FOR,

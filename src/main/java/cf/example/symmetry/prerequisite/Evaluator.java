@@ -1,4 +1,4 @@
-package cf.example.symmetry.template;
+package cf.example.symmetry.prerequisite;
 
 import java.util.Objects;
 
