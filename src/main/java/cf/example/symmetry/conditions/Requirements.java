@@ -1,4 +1,6 @@
-package cf.example.symmetry;
+package cf.example.symmetry.conditions;
+
+import cf.example.symmetry.exceptions.CustomException;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -8,11 +10,11 @@ import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
 
-public class PairCreator {
+public class Requirements {
 
-    public static List<Pair<Character, Character>> getRulePairs() {
-        List<Pair<Character, Character>> pairsToCheck = new ArrayList<>();
-        InputStream file = PairCreator.class
+    public static List<Base<Character, Character>> getRule() {
+        List<Base<Character, Character>> baseList = new ArrayList<>();
+        InputStream file = Requirements.class
                 .getClassLoader()
                 .getResourceAsStream("pairs.txt");
 
@@ -24,18 +26,19 @@ public class PairCreator {
 
             while ((rule = br.readLine()) != null) {
                 for (int i = 0; i < rule.length(); i += 2) {
-                    Pair<Character, Character> pair = new Pair<>(rule.charAt(i), rule.charAt(i + 1));
-                    pairsToCheck.add(pair);
+                    Base<Character, Character> base = new Base<>(rule.charAt(i), rule.charAt(i + 1));
+                    baseList.add(base);
 
                 }
             }
 
-
-        } catch (IOException e) {
-            e.printStackTrace();
+        } catch (NullPointerException | IOException e) {
+            throw new CustomException("The file could not be opened!", e);
         }
-        return pairsToCheck;
+        return baseList;
     }
+
+
 }
 
 
