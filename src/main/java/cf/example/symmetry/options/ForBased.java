@@ -1,7 +1,7 @@
 package cf.example.symmetry.options;
 
 import cf.example.symmetry.prerequisite.Requirement;
-import cf.example.symmetry.prerequisite.Evaluator;
+import cf.example.symmetry.Evaluator;
 import cf.example.symmetry.prerequisite.Requirements;
 
 import java.util.stream.Stream;
@@ -9,7 +9,7 @@ import java.util.stream.Stream;
 public class ForBased extends Evaluator {
 
     @Override
-    public boolean isStringSymmetric(String str) {
+    public boolean isSymmetric(String str) {
         boolean anyMatch = false;
 
         for (int i = 0; i < str.length(); i++) {

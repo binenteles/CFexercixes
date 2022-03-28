@@ -1,6 +1,6 @@
 package cf.example.symmetry.options;
 
-import cf.example.symmetry.prerequisite.Evaluator;
+import cf.example.symmetry.Evaluator;
 import cf.example.symmetry.prerequisite.Requirement;
 import cf.example.symmetry.prerequisite.Requirements;
 
@@ -11,7 +11,7 @@ public class StackBased extends Evaluator {
 
 
     @Override
-    public boolean isStringSymmetric(String str) {
+    public boolean isSymmetric(String str) {
         Stack<Character> stack = new Stack<>();
 
         for (int i = str.length() / 2; i < str.length(); i++) {

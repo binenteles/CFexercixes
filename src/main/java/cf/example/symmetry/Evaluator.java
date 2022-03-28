@@ -1,14 +1,14 @@
-package cf.example.symmetry.prerequisite;
+package cf.example.symmetry;
 
 import java.util.Objects;
 
 public abstract class Evaluator {
 
-    public abstract boolean isStringSymmetric(String str);
+    public abstract boolean isSymmetric(String str);
 
     public final boolean evaluate(String str) {
         return isStringNullOrEmpty(str) && isValidWithoutSpaces(str)
-                && hasOddLength(str) && isStringSymmetric(str);
+                && isEven(str) && isSymmetric(str);
     }
 
     private boolean isStringNullOrEmpty(String str) {
@@ -19,7 +19,7 @@ public abstract class Evaluator {
         return str.trim().length() < 2;
     }
 
-    private boolean hasOddLength(String str) {
+    private boolean isEven(String str) {
         return str.length() % 2 == 0;
     }
 

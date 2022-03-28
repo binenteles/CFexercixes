@@ -16,16 +16,16 @@ public class Requirements {
         List<Requirement<Character, Character>> requirements = new ArrayList<>();
         InputStream file = Requirements.class
                 .getClassLoader()
-                .getResourceAsStream("rules.txt");
+                .getResourceAsStream("C:\\Users\\Alexandru\\IdeaProjects\\Problema\\src\\test\\resources\\rules.txt");
 
-        String rule;
+        String get;
 
         try (BufferedReader br = new BufferedReader(
                 new InputStreamReader(file, StandardCharsets.UTF_8))) {
 
 
-            while ((rule = br.readLine()) != null) {
-                    Requirement<Character, Character> requirement = new Requirement<>(rule.charAt(0), rule.charAt(1));
+            while ((get = br.readLine()) != null) {
+                    Requirement<Character, Character> requirement = new Requirement<>(get.charAt(0), get.charAt(1));
                     requirements.add(requirement);
             }
 
@@ -34,6 +34,8 @@ public class Requirements {
         }
         return requirements;
     }
+
+
 
 
 }
