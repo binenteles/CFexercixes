@@ -1,8 +1,8 @@
 package cf.example.symmetry.options;
 
 import cf.example.symmetry.Evaluator;
-import cf.example.symmetry.prerequisite.Requirement;
-import cf.example.symmetry.prerequisite.Requirements;
+import cf.example.symmetry.requirements.Requirement;
+import cf.example.symmetry.requirements.Requirements;
 
 import java.util.Stack;
 import java.util.stream.Stream;
@@ -28,8 +28,8 @@ public class StackBased extends Evaluator {
 
             } else {
                 if (!stack.isEmpty()) {
-                    boolean any = getStream().anyMatch(base -> base.getRight() == current &&
-                            base.getLeft() != stack.pop());
+                    boolean any = getStream().anyMatch(base -> base.getRightChar() == current &&
+                            base.getLeftChar() != stack.pop());
                     if (!any) {
                         return false;
                     }
@@ -41,13 +41,13 @@ public class StackBased extends Evaluator {
 
     }
 
-    private Stream<Requirement<Character, Character>> getStream() {
+    private Stream<Requirement<Character>> getStream() {
         return Requirements.getRule().stream();
     }
 
 
     private boolean isOpenBracket(char input) {
-        return Requirements.getRule().stream().map(Requirement::getLeft).toList().contains(input);
+        return Requirements.getRule().stream().map(Requirement::getLeftChar).toList().contains(input);
     }
 
 }

@@ -12,6 +12,6 @@ import java.lang.annotation.Target;
 @Retention(RetentionPolicy.RUNTIME)
 @ParameterizedTest
 @CsvFileSource(resources = "/entries.csv", numLinesToSkip = 1)
-@interface customAnnotation {
+@interface ParameterizedCsvSource {
 
 }

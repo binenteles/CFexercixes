@@ -7,25 +7,25 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class SymmetryTests {
     SymmetryFactory symmetryFactory = new SymmetryFactory();
 
-    @customAnnotation
+    @ParameterizedCsvSource
     public void checkBracketsWithFor_ShouldHaveExpectedOutcome(String str, boolean expected) {
         boolean actualValue = symmetryFactory.getEvaluator(Type.FOR).evaluate(str);
         assertEquals(expected, actualValue);
     }
 
-    @customAnnotation
+    @ParameterizedCsvSource
     public void checkBracketsWithRegex_ShouldHaveExpectedOutcome(String str, boolean expected) {
         boolean actualValue = symmetryFactory.getEvaluator(Type.REGEX).evaluate(str);
         assertEquals(expected, actualValue);
     }
 
-    @customAnnotation
+    @ParameterizedCsvSource
     public void checkBracketsWithStack_ShouldHaveExpectedOutcome(String str, boolean expected) {
         boolean actualValue = symmetryFactory.getEvaluator(Type.STACK).evaluate(str);
         assertEquals(expected, actualValue);
     }
 
-    @customAnnotation
+    @ParameterizedCsvSource
     public void checkBracketsWithWhile_ShouldHaveExpectedOutcome(String str, boolean expected) {
         boolean actualValue = symmetryFactory.getEvaluator(Type.WHILE).evaluate(str);
         assertEquals(expected, actualValue);

@@ -1,8 +1,8 @@
 package cf.example.symmetry.options;
 
-import cf.example.symmetry.prerequisite.Requirement;
+import cf.example.symmetry.requirements.Requirement;
 import cf.example.symmetry.Evaluator;
-import cf.example.symmetry.prerequisite.Requirements;
+import cf.example.symmetry.requirements.Requirements;
 
 import java.util.stream.Stream;
 
@@ -23,7 +23,7 @@ public class WhileBased extends Evaluator {
             char start = arr[i];
             char end = arr[j];
             boolean any = getStream()
-                    .anyMatch(base -> base.getLeft() == start && base.getRight() == end);
+                    .anyMatch(base -> base.getLeftChar() == start && base.getRightChar() == end);
             i++;
             j--;
             if (!any) {
@@ -34,7 +34,7 @@ public class WhileBased extends Evaluator {
         return true;
     }
 
-    private Stream<Requirement<Character, Character>> getStream() {
+    private Stream<Requirement<Character>> getStream() {
         return Requirements.getRule().stream();
     }
 
