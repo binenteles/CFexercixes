@@ -2,6 +2,7 @@ package cf.example.symmetry;
 
 import java.util.Objects;
 
+@ComponentInfo(name = "Balanced Brackets", date = "29-03-2022", currentRevision = 17)
 public abstract class Evaluator {
 
     public abstract boolean isSymmetric(String str);

@@ -1,10 +1,7 @@
 package cf.example.symmetry.options;
 
-import cf.example.symmetry.requirements.Requirement;
 import cf.example.symmetry.Evaluator;
 import cf.example.symmetry.requirements.Requirements;
-
-import java.util.stream.Stream;
 
 public class WhileBased extends Evaluator {
 
@@ -22,8 +19,8 @@ public class WhileBased extends Evaluator {
         while (i < j) {
             char start = arr[i];
             char end = arr[j];
-            boolean any = getStream()
-                    .anyMatch(base -> base.getLeftChar() == start && base.getRightChar() == end);
+            boolean any = Requirements.getRule().stream()
+                    .anyMatch(base -> base.compareChars(start, end));
             i++;
             j--;
             if (!any) {
@@ -32,10 +29,6 @@ public class WhileBased extends Evaluator {
 
         }
         return true;
-    }
-
-    private Stream<Requirement<Character>> getStream() {
-        return Requirements.getRule().stream();
     }
 
 

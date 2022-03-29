@@ -11,6 +11,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
+@PotentialErrors
 public class Requirements {
 
     public static List<Requirement<Character>> getRule() {
