@@ -18,7 +18,6 @@ public class ForBased extends Evaluator {
                 return false;
             }
         }
-
         return anyMatch;
     }
 

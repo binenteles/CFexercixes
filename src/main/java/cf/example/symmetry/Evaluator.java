@@ -41,8 +41,6 @@ public abstract class Evaluator {
             }
         }
         return true;
-
     }
-
 
 }

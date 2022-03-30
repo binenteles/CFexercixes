@@ -12,8 +12,13 @@ public class StackBased extends Evaluator {
     public boolean isSymmetric(String str) {
         Stack<Character> stack = new Stack<>();
 
-        if (hasOpenBracketsInTheRightSide(str)) return false;
-        if (hasClosedBracketsInTheLeftSide(str)) return false;
+        if (hasOpenBracketsInTheRightSide(str)){
+            return false;
+        }
+        
+        if (hasClosedBracketsInTheLeftSide(str)) {
+            return false;
+        }
 
         for (int i = 0; i < str.length(); i++) {
             char current = str.charAt(i);
@@ -22,12 +27,10 @@ public class StackBased extends Evaluator {
 
             } else {
                 if (!stack.isEmpty()) {
-                    char popCharFromStack = stack.pop();
-                    boolean anyMatch = Requirements.getRule().stream()
+                    boolean currentComparedWithFirstCharOfStack = Requirements.getRule().stream()
                             .anyMatch(requirement -> requirement.getRightChar() == current &&
-                                    requirement.getLeftChar() == popCharFromStack);
-
-                    if (!anyMatch) {
+                                    requirement.getLeftChar() == stack.pop());
+                    if (!currentComparedWithFirstCharOfStack) {
                         return false;
                     }
 
