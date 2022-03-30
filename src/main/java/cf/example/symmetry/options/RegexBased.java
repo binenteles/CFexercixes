@@ -10,6 +10,7 @@ public class RegexBased extends Evaluator {
 
     @Override
     public boolean isSymmetric(String str) {
+        String model = "(^\\(.*?\\)$)";
         Pattern pattern = Pattern.compile("(^\\(.*?\\)$)|(^\\[.*?]$)|(^\\{.*?}$)");
         Matcher matcher = pattern.matcher(str);
         if (str.length() == 2) {

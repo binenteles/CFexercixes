@@ -20,14 +20,12 @@ public class SymmetryTests {
     }
 
     @ParameterizedCsvSource
-    @MarkedMethod("Stack symmetry test")
     public void checkBracketsWithStack_ShouldHaveExpectedOutcome(String str, boolean expected) {
         boolean actualValue = symmetryFactory.getEvaluator(Type.STACK).evaluate(str);
         assertEquals(expected, actualValue);
     }
 
     @ParameterizedCsvSource
-    @InputTests(value = 13)
     public void checkBracketsWithWhile_ShouldHaveExpectedOutcome(String str, boolean expected) {
         boolean actualValue = symmetryFactory.getEvaluator(Type.WHILE).evaluate(str);
         assertEquals(expected, actualValue);

@@ -25,17 +25,13 @@ public class StackBased extends Evaluator {
             if (isOpenBracket(current)) {
                 stack.push(current);
 
-            } else {
-                if (!stack.isEmpty()) {
-                    boolean currentComparedWithFirstCharOfStack = Requirements.getRule().stream()
+            } else if (!stack.isEmpty()) {
+                    return Requirements.getRule().stream()
                             .anyMatch(requirement -> requirement.getRightChar() == current &&
                                     requirement.getLeftChar() == stack.pop());
-                    if (!currentComparedWithFirstCharOfStack) {
-                        return false;
-                    }
 
                 }
-            }
+
         }
         return true;
 

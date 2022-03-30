@@ -6,7 +6,6 @@ import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 
-@ComponentInfo(name = "Balanced Brackets", date = "29-03-2022", currentRevision = 17)
 public abstract class Evaluator {
 
     public abstract boolean isSymmetric(String str);
@@ -42,5 +41,6 @@ public abstract class Evaluator {
         }
         return true;
     }
+
 
 }

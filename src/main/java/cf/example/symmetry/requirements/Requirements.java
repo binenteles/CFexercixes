@@ -6,12 +6,10 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 import java.util.stream.Collectors;
 
-@PotentialErrors
+
 public class Requirements {
 
     public static List<Requirement<Character>> getRule() {
@@ -33,10 +31,16 @@ public class Requirements {
         return requirements;
     }
 
-
-
-
-
+    public static boolean startEndCharactersMeetRequirement(String str) {
+        for (int i = 0; i < str.length()/2; i++) {
+            char start = str.charAt(i);
+            char end = str.charAt(str.length() - 1 - i);
+            if(Requirements.getRule().stream().noneMatch(requirement->requirement.compareChars(start,end))){
+                return false;
+            }
+        }
+        return true;
+    }
 
 }
 

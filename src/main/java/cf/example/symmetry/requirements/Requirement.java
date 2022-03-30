@@ -25,8 +25,6 @@ public class Requirement<T>  {
                 '}';
     }
 
-
-
     public boolean compareChars(char left, char right) {
        return getLeftChar().equals(left) && getRightChar().equals(right);
     }
