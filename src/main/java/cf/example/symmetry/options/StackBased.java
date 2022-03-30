@@ -12,10 +12,10 @@ public class StackBased extends Evaluator {
     public boolean isSymmetric(String str) {
         Stack<Character> stack = new Stack<>();
 
-        if (hasOpenBracketsInTheRightSide(str)){
+        if (hasOpenBracketsInTheRightSide(str)) {
             return false;
         }
-        
+
         if (hasClosedBracketsInTheLeftSide(str)) {
             return false;
         }
@@ -26,11 +26,8 @@ public class StackBased extends Evaluator {
                 stack.push(current);
 
             } else if (!stack.isEmpty()) {
-                    return Requirements.getRule().stream()
-                            .anyMatch(requirement -> requirement.getRightChar() == current &&
-                                    requirement.getLeftChar() == stack.pop());
-
-                }
+                return Requirements.compareStartEndCharacters(stack.pop(), current);
+            }
 
         }
         return true;
@@ -67,7 +64,6 @@ public class StackBased extends Evaluator {
     private boolean isClosedBracket(char input) {
         return Requirements.getRule().stream().map(Requirement::getRightChar).toList().contains(input);
     }
-
 
 
 }

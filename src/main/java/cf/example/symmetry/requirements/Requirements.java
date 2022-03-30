@@ -31,16 +31,11 @@ public class Requirements {
         return requirements;
     }
 
-    public static boolean startEndCharactersMeetRequirement(String str) {
-        for (int i = 0; i < str.length()/2; i++) {
-            char start = str.charAt(i);
-            char end = str.charAt(str.length() - 1 - i);
-            if(Requirements.getRule().stream().noneMatch(requirement->requirement.compareChars(start,end))){
-                return false;
-            }
-        }
-        return true;
+    public static boolean compareStartEndCharacters(char start, char end) {
+        return Requirements.getRule().stream()
+                .anyMatch(requirement -> requirement.compareChars(start, end));
     }
+
 
 }
 

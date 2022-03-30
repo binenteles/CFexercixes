@@ -7,7 +7,7 @@ import cf.example.symmetry.options.WhileBased;
 
 public final class SymmetryFactory {
 
-    public Evaluator getEvaluator (Type symmetricEvaluatorType) {
+    public Evaluator getEvaluator(Type symmetricEvaluatorType) {
         return switch (symmetricEvaluatorType) {
             case FOR -> new ForBased();
             case WHILE -> new WhileBased();

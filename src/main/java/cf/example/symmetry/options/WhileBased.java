@@ -15,11 +15,9 @@ public class WhileBased extends Evaluator {
         while (i < j) {
             char start = arr[i];
             char end = arr[j];
-            boolean anyMatch = Requirements.getRule().stream()
-                    .anyMatch(requirement -> requirement.compareChars(start, end));
             i++;
             j--;
-            if (!anyMatch) {
+            if (!Requirements.compareStartEndCharacters(start, end)) {
                 return false;
             }
 
