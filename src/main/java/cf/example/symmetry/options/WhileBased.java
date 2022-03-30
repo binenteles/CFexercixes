@@ -20,7 +20,7 @@ public class WhileBased extends Evaluator {
             char start = arr[i];
             char end = arr[j];
             boolean any = Requirements.getRule().stream()
-                    .anyMatch(base -> base.compareChars(start, end));
+                    .anyMatch(requirement -> requirement.compareChars(start, end));
             i++;
             j--;
             if (!any) {

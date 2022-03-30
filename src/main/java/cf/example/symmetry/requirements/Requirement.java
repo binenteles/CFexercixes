@@ -28,6 +28,6 @@ public class Requirement<T>  {
 
 
     public boolean compareChars(char left, char right) {
-       return getLeftChar() == leftChar && getRightChar() == rightChar;
+       return getLeftChar().equals(left) && getRightChar().equals(right);
     }
 }
