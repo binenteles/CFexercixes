@@ -12,7 +12,7 @@ import java.util.stream.Collectors;
 
 public class Requirements {
 
-    public static List<Requirement<Character>> getRule() {
+    public static List<Requirement<Character>> saveRequirementPairsInList() {
         List<Requirement<Character>> requirements = new ArrayList<>();
         Path filePath = Paths.get("src/test/resources/rules.txt");
 
@@ -31,9 +31,9 @@ public class Requirements {
         return requirements;
     }
 
-    public static boolean compareStartEndCharacters(char start, char end) {
-        return Requirements.getRule().stream()
-                .anyMatch(requirement -> requirement.compareChars(start, end));
+    public static boolean matchCharactersWithRequirementPairs(char start, char end) {
+        return Requirements.saveRequirementPairsInList().stream()
+                .noneMatch(requirement -> requirement.compareChars(start, end));
     }
 
 
