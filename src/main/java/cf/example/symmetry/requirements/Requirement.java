@@ -1,6 +1,6 @@
 package cf.example.symmetry.requirements;
 
-public class Requirement<T>  {
+public class Requirement<T> {
     private final T leftChar;
     private final T rightChar;
 
@@ -14,6 +14,7 @@ public class Requirement<T>  {
     }
 
     public T getRightChar() {
+
         return rightChar;
     }
 
@@ -26,6 +27,6 @@ public class Requirement<T>  {
     }
 
     public boolean compareChars(char left, char right) {
-       return getLeftChar().equals(left) && getRightChar().equals(right);
+        return getLeftChar().equals(left) && getRightChar().equals(right);
     }
 }
