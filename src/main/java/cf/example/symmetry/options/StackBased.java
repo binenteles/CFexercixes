@@ -35,25 +35,23 @@ public class StackBased extends Evaluator {
     }
 
     private boolean hasOpenBracketsInTheRightSide(String str) {
-        boolean status = false;
         for (int i = str.length() / 2; i < str.length(); i++) {
             char current = str.charAt(i);
             if (isOpenBracket(current)) {
-                status = true;
+                return true;
             }
         }
-        return status;
+        return false;
     }
 
     private boolean hasClosedBracketsInTheLeftSide(String str) {
-        boolean status = false;
         for (int i = 0; i < str.length() / 2; i++) {
             char current = str.charAt(i);
             if (isClosedBracket(current)) {
-                status = true;
+                return true;
             }
         }
-        return status;
+        return false;
     }
 
     private boolean isOpenBracket(char input) {
