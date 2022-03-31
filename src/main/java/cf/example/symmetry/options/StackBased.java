@@ -12,11 +12,7 @@ public class StackBased extends Evaluator {
     public boolean isSymmetric(String str) {
         Stack<Character> stack = new Stack<>();
 
-        if (hasOpenBracketsInTheRightSide(str)) {
-            return false;
-        }
-
-        if (hasClosedBracketsInTheLeftSide(str)) {
+        if (hasOpenBracketsInTheRightSide(str) || hasClosedBracketsInTheLeftSide(str)) {
             return false;
         }
 
