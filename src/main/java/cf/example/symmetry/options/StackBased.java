@@ -25,7 +25,7 @@ public class StackBased extends Evaluator {
             if (isOpenBracket(current)) {
                 stack.push(current);
 
-            } else if (Requirements.matchCharactersWithRequirementPairs(stack.pop(), current)) {
+            } else if (Requirements.matchCharactersWithRequirementPair(stack.pop(), current)) {
                 return false;
             }
 
@@ -55,12 +55,12 @@ public class StackBased extends Evaluator {
     }
 
     private boolean isOpenBracket(char input) {
-        return Requirements.saveRequirementPairsInList().stream().map(Requirement::getLeftChar).toList().contains(input);
+        return Requirements.readRequirementPairs().stream().map(Requirement::getLeftChar).toList().contains(input);
     }
 
 
     private boolean isClosedBracket(char input) {
-        return Requirements.saveRequirementPairsInList().stream().map(Requirement::getRightChar).toList().contains(input);
+        return Requirements.readRequirementPairs().stream().map(Requirement::getRightChar).toList().contains(input);
     }
 
 

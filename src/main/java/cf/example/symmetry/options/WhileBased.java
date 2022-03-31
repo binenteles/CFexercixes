@@ -17,7 +17,7 @@ public class WhileBased extends Evaluator {
             char end = arr[j];
             i++;
             j--;
-            if (Requirements.matchCharactersWithRequirementPairs(start, end)) {
+            if (Requirements.matchCharactersWithRequirementPair(start, end)) {
                 return false;
             }
 

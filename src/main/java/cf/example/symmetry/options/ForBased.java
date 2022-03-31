@@ -11,7 +11,7 @@ public class ForBased extends Evaluator {
         for (int i = 0; i < str.length() / 2; i++) {
             char start = str.charAt(i);
             char end = str.charAt(str.length() - 1 - i);
-            if (Requirements.matchCharactersWithRequirementPairs(start, end)) {
+            if (Requirements.matchCharactersWithRequirementPair(start, end)) {
                 return false;
             }
         }

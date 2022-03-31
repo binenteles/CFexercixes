@@ -12,18 +12,15 @@ import java.util.stream.Collectors;
 
 public class Requirements {
 
-    public static List<Requirement<Character>> saveRequirementPairsInList() {
-        List<Requirement<Character>> requirements = new ArrayList<>();
+    public static List<Requirement<Character>> readRequirementPairs() {
+        List<Requirement<Character>> requirements;
         Path filePath = Paths.get("src/test/resources/rules.txt");
 
         try {
             String content = Files.readString(filePath);
             String[] lines = content.split("\\R");
-            List<Requirement> requirementList = Arrays.stream(lines)
+            requirements = Arrays.stream(lines)
                     .map(requirement -> new Requirement<>(requirement.charAt(0), requirement.charAt(1))).collect(Collectors.toList());
-            for (Requirement<Character> requirement : requirementList) {
-                requirements.add(requirement);
-            }
 
         } catch (NullPointerException | IOException e) {
             throw new ReadRequirementException("The file could not be opened!", e);
@@ -31,9 +28,9 @@ public class Requirements {
         return requirements;
     }
 
-    public static boolean matchCharactersWithRequirementPairs(char start, char end) {
-        return Requirements.saveRequirementPairsInList().stream()
-                .noneMatch(requirement -> requirement.compareChars(start, end));
+    public static boolean matchCharactersWithRequirementPair(char left, char right) {
+        return Requirements.readRequirementPairs().stream()
+                .noneMatch(requirement -> requirement.compareChars(left, right));
     }
 
 

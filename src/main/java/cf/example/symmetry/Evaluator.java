@@ -29,7 +29,7 @@ public abstract class Evaluator {
 
     private boolean containsOnlyRequiredElements(String str) {
         Set<Character> set = new HashSet<>();
-        Requirements.saveRequirementPairsInList().forEach(req -> {
+        Requirements.readRequirementPairs().forEach(req -> {
             set.add(req.getLeftChar());
             set.add(req.getRightChar());
         });
